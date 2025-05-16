@@ -1,16 +1,16 @@
 
 import React from "react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { FolderOpen } from "lucide-react";
 
 interface AreaCardProps {
   nome: string;
   modelos: number;
   driveUrl: string;
   color: string;
-  icon: React.ReactNode;
 }
 
-const AreaCard: React.FC<AreaCardProps> = ({ nome, modelos, driveUrl, color, icon }) => (
+const AreaCard: React.FC<AreaCardProps> = ({ nome, modelos, driveUrl, color }) => (
   <Tooltip>
     <TooltipTrigger asChild>
       <a
@@ -22,7 +22,9 @@ const AreaCard: React.FC<AreaCardProps> = ({ nome, modelos, driveUrl, color, ico
         aria-label={`Acessar modelos de ${nome}`}
       >
         <div className="flex items-center gap-3 p-6">
-          <span className="drop-shadow-md">{icon}</span>
+          <span className="drop-shadow-md">
+            <FolderOpen color={color} size={36} />
+          </span>
           <div>
             <h2 className="font-semibold text-lg mb-0 text-white">{nome}</h2>
             <span className="text-sm text-gray-400">{modelos} modelos</span>

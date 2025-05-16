@@ -4,23 +4,6 @@ import AreaCard from "@/components/AreaCard";
 import { useModelosPeticoes } from "@/hooks/useModelosPeticoes";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/sonner";
-import {
-  Gavel, Scale, Wallet, Book, FileText, Clipboard, Shield
-} from "lucide-react";
-
-// Mapeamento area->Icon via regex/casos (lucide-react: gavel, scale, wallet, book, file-text, clipboard, shield)
-const areaToIcon = (area: string, color: string) => {
-  const key = area.toLowerCase();
-  if (key.includes("penal") || key.includes("criminal")) return <Gavel color={color} size={36} />;
-  if (key.includes("civil")) return <Scale color={color} size={36} />;
-  if (key.includes("tribut") || key.includes("banc")) return <Wallet color={color} size={36} />;
-  if (key.includes("constit")) return <Shield color={color} size={36} />;
-  if (key.includes("família") || key.includes("infância")) return <Book color={color} size={36} />;
-  if (key.includes("advocacia") || key.includes("empresarial") || key.includes("comercial")) return <FileText color={color} size={36} />;
-  if (key.includes("proced") || key.includes("recurso") || key.includes("peti") || key.includes("procura")) return <Clipboard color={color} size={36} />;
-  // fallback
-  return <Scale color={color} size={36} />;
-};
 
 // Netflix palette, 10 opções. Recicla para termos extra.
 const CARD_COLORS = [
@@ -95,7 +78,6 @@ const Index = () => {
                 modelos={Number(area.total)}
                 driveUrl={area.link}
                 color={CARD_COLORS[idx % CARD_COLORS.length]}
-                icon={areaToIcon(area.area, CARD_COLORS[idx % CARD_COLORS.length])}
               />
           ))
         )}
