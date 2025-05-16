@@ -84,7 +84,7 @@ const Index = () => {
       </section>
 
       <footer className="mt-16 text-xs text-gray-500 opacity-40">
-        &copy; {new Date().getFullYear()} Peticionário. Inspirado na experiência Netflix.
+        &copy; {new Date().getFullYear()} Peticionário. Direito 360
       </footer>
     </div>
   );
